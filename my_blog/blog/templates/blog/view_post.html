@@ -1,0 +1,28 @@
+<h1>
+    <u> 
+        {{post.title}} 
+    </u>
+    <h2>
+        <p><b>Date Published &nbsp; :</b>{{post.date_published}}</p>
+    </h2>
+</h1>
+    <p>
+        {{post.body}}
+    </p>
+
+
+    <br>
+    <br>
+    <br>
+    <h2>Comments for this post!</h2>
+    {% for comment in comments %}
+        <ul>
+            <li>{{comment}}</li>
+        </ul>
+    {% endfor %}
+
+<form action = "{% url 'blog:add_comment' post.id%}" method="POST">
+    <input type="text" placeholder="Type Your comment here!"name='comment'>{% csrf_token %} 
+
+    <button type="submit">Add My Comment</button>
+</form>

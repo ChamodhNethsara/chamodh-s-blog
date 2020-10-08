@@ -1,0 +1,18 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+<h1>
+    Add new Post 
+</h1>
+<form action="{% url 'blog:new_post' %}" method="POST">
+    <div class="form-group">
+        <label for="title">POST TITLE</label>
+        <input type="text" class="form-control" value="" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Title"name='title1' required>{% csrf_token %}
+        <small id="emailHelp" class="form-text text-muted">maximum charachters is 200</small>
+      </div>
+      <div class="form-group">
+        <label for="body">POST BODY</label>
+        <input type="text" class="form-control" value="" id="exampleInputPassword1" placeholder="Write your Post Here"name='body'required>{% csrf_token %}
+      </div>
+      
+      <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
